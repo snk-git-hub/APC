@@ -3,6 +3,9 @@
 #define SUCCESS 0
 #define FAILURE -1
 
+#include <stdio.h>
+#include <ctype.h>
+
 typedef int data_t;
 typedef struct node
 {
@@ -12,5 +15,8 @@ typedef struct node
 }Dlist;
 
 /* Include the prototypes here */
-
+int addition(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR);
+int subtraction(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR);
+int division(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR);
+int multiplication(Dlist **head1, Dlist **tail1, Dlist **head2, Dlist **tail2, Dlist **headR);
 #endif

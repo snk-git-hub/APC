@@ -5,7 +5,27 @@
 #include <stdlib.h>
 
 #include "apc.h"
+int print_answer(Dlist **headR)
+{
+	if (headR == NULL) return FAILURE;
 
+	Dlist *tempR = *headR;
+	while (tempR != NULL) {
+		printf("%c", tempR->data);
+		tempR = tempR->next;
+	}
+	printf("\n");
+
+	return SUCCESS;
+}
+void free_list(Dlist **head) {
+	Dlist *temp;
+	while (*head != NULL) {
+		temp = *head;
+		*head = (*head)->next;;
+		free(temp);
+	}
+}
 
 void createDlist(Dlist **head, Dlist **tail,const char *str) {
 	for (int i = 0;str[i]!='\0';i++) {
@@ -81,7 +101,12 @@ int main(int argc, char *argv[])
 		{
 			case '+':
 				/* call the function to perform the addition operation */
-				printf("ans : %d \n", addition(&head1,&tail1,&head2,&tail2,&headR));
+                addition(&head1, &tail1, &head2, &tail2, &headR);
+				printf("answer:\n");
+				print_answer(&headR);
+				free_list(&headR);
+				free_list(&head1);
+				free_list(&head2);
 				break;
 			case '-':	
 				/* call the function to perform the subtraction operation */

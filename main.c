@@ -110,7 +110,15 @@ int main(int argc, char *argv[])
 				break;
 			case '-':	
 				/* call the function to perform the subtraction operation */
-				printf("%d", subtraction(&head1,&tail1,&head2,&tail2,&headR));
+				// int sub = subtraction(&head1,&tail1,&head2,&tail2,&headR);
+				// printf("answer:%d\n",sub);
+
+				subtraction(&head1,&tail1,&head2,&tail2,&headR);
+				printf("answer:\n");
+				print_answer(&headR);
+				free_list(&headR);
+				free_list(&head1);
+				free_list(&head2);
 				break;
 			case '*':	
 				/* call the function to perform the multiplication operation */
